@@ -1,6 +1,6 @@
 //
-//  ssUITests.m
-//  ssUITests
+//  SegueDemoUITests.m
+//  SegueDemoUITests
 //
 //  Created by Ni Tu on 8/2/2562 BE.
 //  Copyright © 2562 CatDev. All rights reserved.
@@ -8,11 +8,11 @@
 
 #import <XCTest/XCTest.h>
 
-@interface ssUITests : XCTestCase
+@interface SegueDemoUITests : XCTestCase
 
 @end
 
-@implementation ssUITests
+@implementation SegueDemoUITests
 
 - (void)setUp {
     // Put setup code here. This method is called before the invocation of each test method in the class.
