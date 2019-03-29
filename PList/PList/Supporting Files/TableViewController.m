@@ -20,10 +20,8 @@
     [super viewDidLoad];
     
     NSString *pathname = [[NSBundle mainBundle] pathForResource:@"myList" ofType:@"plist"];
-    //NSMutableArray *array =[[NSMutableArray alloc] initWithContentsOfFile:pathname];
-    NSMutableArray *array =[NSMutableArray arrayWithContentsOfFile:pathname];
+    NSMutableArray *array =[[NSMutableArray alloc] initWithContentsOfFile:pathname];
     self.Array = array;
-
 }
 
 #pragma mark - Table view data source
@@ -39,7 +37,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"pListCell" forIndexPath:indexPath];
-    //cell.textLabel.text= [[self.Array objectAtIndex:indexPath.row] objectForKey:@"key"];
     cell.textLabel.text= [self.Array objectAtIndex:indexPath.row];
     return cell;
 }

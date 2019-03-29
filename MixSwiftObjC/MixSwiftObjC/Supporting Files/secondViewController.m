@@ -9,6 +9,7 @@
 #import "secondViewController.h"
 
 @interface secondViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *myLabel;
 
 @end
 
@@ -17,6 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    _myLabel.text = [NSString stringWithFormat:@"Hello, %@", self.castText];
 }
 
 /*

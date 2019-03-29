@@ -1,0 +1,6 @@
+framework module Pods_MixSwiftObjCUITests {
+  umbrella header "Pods-MixSwiftObjCUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

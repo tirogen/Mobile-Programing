@@ -7,30 +7,49 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class studentTableViewController: UITableViewController {
 
+    var studentId: String = ""
+    private let secrete: String = "xx"
+    
+    @IBOutlet weak var email: UILabel!
+    @IBOutlet weak var nameThai: UILabel!
+    @IBOutlet weak var nameEng: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let urlString = "https://www.cas.chula.ac.th/cas/service.php?q=api%2FgetStudent&appid=th.ac.chula.eng.cp.mobileprog&appsecret="+secrete+"&key="+studentId
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        AF.request(urlString).responseJSON { (responseData) -> Void in
+            if((responseData.result.value) != nil) {
+                let swiftyJsonVar = JSON(responseData.result.value!)
+                self.nameEng.text = swiftyJsonVar["content"]["name_en"].rawString()
+                self.nameThai.text = swiftyJsonVar["content"]["name_th"].rawString()
+                self.email.text = swiftyJsonVar["content"]["email"].rawString()
+            }
+        }
+        
     }
-
-    // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 3
     }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+    
+    // MARK: - Table view data source
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
