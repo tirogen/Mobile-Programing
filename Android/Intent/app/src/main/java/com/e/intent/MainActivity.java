@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         editName = findViewById(R.id.editName);
-        imageView = findViewById(R.id.imageCam);
+        //imageView = findViewById(R.id.imageCam);
     }
 
     public void onClickBtn(View v){
